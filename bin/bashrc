@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# real symbolic links in Windows
+export CYGWIN=winsymlinks:nativestrict
+alias ln="sudo ln"

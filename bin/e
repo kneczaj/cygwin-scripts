@@ -1,0 +1,14 @@
+#!/bin/bash
+ARGS=()
+for arg in "$@"
+do
+    if [[ $arg == */* ]] && [[ $arg != -* ]]; then
+        arg="$(cygpath -w $arg)"
+    fi
+    ARGS+=("$arg")
+done
+
+ARGS_STR=$(printf " %s" "${ARGS[@]}")
+ARGS_STR=${ARGS_STR:1}
+
+"/c/Program Files/Notepad++/notepad++.exe" -multiInst -notabbar "$ARGS_STR"
